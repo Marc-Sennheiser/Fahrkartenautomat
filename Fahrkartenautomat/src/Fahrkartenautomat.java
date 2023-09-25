@@ -1,4 +1,4 @@
-import java.util.scanner;
+
 class Fahrkartenautomat {
 	public static void main(String[] args) {
 
