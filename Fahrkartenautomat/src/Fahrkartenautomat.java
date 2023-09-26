@@ -10,21 +10,34 @@ class Fahrkartenautomat {
 		double eingeworfeneMuenze;
 		double rueckgabebetrag;
 		double nochZuZahlen;
+		int ticket;
 
 		// 1
 		System.out.print("Zu zahlender Betrag (Euro): ");
 		zuZahlenderBetrag = tastatur.nextDouble();
-
+		System.out.print("Anzahl der kaufenden Tickets:");
+		ticket = tastatur.nextInt(); 
+		zuZahlenderBetrag *= ticket;
+		
 		// 2
 		eingezahlterGesamtbetrag = 0.0;
-		nochZuZahlen = 0.0;
+		nochZuZahlen = 0.0 ;
 		while (eingezahlterGesamtbetrag < zuZahlenderBetrag) {
 			nochZuZahlen = zuZahlenderBetrag - eingezahlterGesamtbetrag;
-			System.out.println("Noch zu zahlen: " + nochZuZahlen);
-			System.out.print("Eingabe (mind. 5 Cent, höchstens 2 Euro): ");
+			System.out.printf("Noch zu zahlen: %.2f Euro\n", nochZuZahlen);
+		 
+			boolean gueltigeEingabe = false;
+			while (!gueltigeEingabe) {
+			System.out.print("Eingabe (mind. 5 Cent, höchstens 2 Euro z.B. 0,05 oder 2): ");
 			eingeworfeneMuenze = tastatur.nextDouble();
+			if (eingeworfeneMuenze >= 0.05 && eingeworfeneMuenze <= 2.00) {
+			gueltigeEingabe = true;
 			eingezahlterGesamtbetrag = eingezahlterGesamtbetrag + eingeworfeneMuenze;
+			} else {
+			System.out.println("Ungültige Eingabe! Bitte geben Sie einen Betrag zwischen 0,05 und 2,00 Euro ein.");
 		}
+	 }
+	}
 		
 		// 3
 		System.out.println("\nFahrschein wird ausgegeben");
@@ -42,8 +55,8 @@ class Fahrkartenautomat {
 		// 4
 		rueckgabebetrag = eingezahlterGesamtbetrag - zuZahlenderBetrag;
 		if (rueckgabebetrag > 0.0) {
-			System.out.println("Der Rückgabebetrag in Höhe von " + rueckgabebetrag + " Euro");
-			System.out.println("wird in folgenden Münzen ausgezahlt:");
+			 System.out.printf("Der Rückgabebetrag in Höhe von %.2f Euro\n", rueckgabebetrag);
+			 System.out.println("wird in folgenden Münzen ausgezahlt:");
 
 			while (rueckgabebetrag >= 2.0) { // 2-Euro-Münzen
 				System.out.println("2 Euro");
@@ -77,3 +90,6 @@ class Fahrkartenautomat {
 		tastatur.close();
 	}
 }
+
+//Token
+//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
