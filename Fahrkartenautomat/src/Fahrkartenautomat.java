@@ -13,26 +13,23 @@ class Fahrkartenautomat {
 		int ticket;
 
 		// 1
-		System.out.print("Zu zahlender Betrag (Euro): ");
+		System.out.print("Ticketpreis (Euro): ");
 		zuZahlenderBetrag = tastatur.nextDouble();
 		
 		
-		if (zuZahlenderBetrag >= 1.00 && zuZahlenderBetrag <= 10.00) {
-			System.out.println("Der Ticketpreis beträgt nun: " + zuZahlenderBetrag + " Euro");
-		} else {
-		    System.out.println("Fehlerhafte Eingabe - Ticketpreis wird auf 1 gesetzt");
-		    zuZahlenderBetrag = 1;    
-		}
 		
-		System.out.print("Anzahl der kaufenden Tickets:");
-		ticket = tastatur.nextInt(); 
-		if (ticket >= 1 && ticket <= 10) {
-			System.out.println("Die Ticketanzahl beträgt nun: " + ticket + " Tickets");
-		}
-		else {
-			System.out.println("Fehlerhafte Eingabe - Ticketanzahl wird auf 1 gesetzt");
-			ticket = 1;
-		}
+		boolean istGueltig;
+		do {
+		    System.out.print("Anzahl der Tickets: ");
+		    ticket = tastatur.nextInt();
+
+		    istGueltig = ticket >= 1 && ticket <= 10;
+		    if (istGueltig) {
+		        System.out.println("Anzahl der Tickets: " + ticket + " Tickets");
+		    } else {
+		        System.out.println(">> Wählen sie bitte eine Anzahl von 1 bis 10 Tickets aus <<");
+		    }
+		} while (!istGueltig);
 		
 		zuZahlenderBetrag *= ticket;
 		
@@ -121,6 +118,6 @@ class Fahrkartenautomat {
 		tastatur.close();
 	}
 }
-//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
+//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
 
-//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
+
