@@ -15,9 +15,27 @@ class Fahrkartenautomat {
 		// 1
 		System.out.print("Zu zahlender Betrag (Euro): ");
 		zuZahlenderBetrag = tastatur.nextDouble();
+		
+		
+		if (zuZahlenderBetrag >= 1.00 && zuZahlenderBetrag <= 10.00) {
+			System.out.println("Der Ticketpreis beträgt nun: " + zuZahlenderBetrag + " Euro");
+		} else {
+		    System.out.println("Fehlerhafte Eingabe - Ticketpreis wird auf 1 gesetzt");
+		    zuZahlenderBetrag = 1;    
+		}
+		
 		System.out.print("Anzahl der kaufenden Tickets:");
 		ticket = tastatur.nextInt(); 
+		if (ticket >= 1 && ticket <= 10) {
+			System.out.println("Die Ticketanzahl beträgt nun: " + ticket + " Tickets");
+		}
+		else {
+			System.out.println("Fehlerhafte Eingabe - Ticketanzahl wird auf 1 gesetzt");
+			ticket = 1;
+		}
+		
 		zuZahlenderBetrag *= ticket;
+		
 		
 		// 2
 		eingezahlterGesamtbetrag = 0.0;
@@ -28,14 +46,14 @@ class Fahrkartenautomat {
 		 
 			boolean gueltigeEingabe = false;
 			while (!gueltigeEingabe) {
-			System.out.print("Eingabe (mind. 5 Cent, höchstens 2 Euro z.B. 0,05 oder 2): ");
+			System.out.print("Eingabe (mind. 5 Cent, höchstens 50 Euro z.B. 0,05 oder 50): ");
 			eingeworfeneMuenze = tastatur.nextDouble();
-			if (eingeworfeneMuenze == 0.05 || eingeworfeneMuenze == 0.1 || eingeworfeneMuenze == 0.2 || eingeworfeneMuenze == 0.5 || eingeworfeneMuenze == 1 || eingeworfeneMuenze == 2 || eingeworfeneMuenze == 5 || eingeworfeneMuenze == 10 ||eingeworfeneMuenze == 20 ||eingeworfeneMuenze == 50) {
+			if (eingeworfeneMuenze == 0.05 || eingeworfeneMuenze == 0.10 || eingeworfeneMuenze == 0.2 || eingeworfeneMuenze == 0.5 || eingeworfeneMuenze == 1 || eingeworfeneMuenze == 2 || eingeworfeneMuenze == 5 || eingeworfeneMuenze == 10 ||eingeworfeneMuenze == 20 || eingeworfeneMuenze == 50) {
 			gueltigeEingabe = true;
 				
 			eingezahlterGesamtbetrag = eingezahlterGesamtbetrag + eingeworfeneMuenze;
 			} else {
-			System.out.println("Ungültige Eingabe! Bitte geben Sie einen Betrag zwischen 0,05 und 2,00 Euro ein.");
+			System.out.println("Ungültige Eingabe! Bitte geben Sie einen gültigen Betrag ein: 0,1  0,2  0,5  1  2  5  10  20  50");
 		}
 	 }
 	}
@@ -62,38 +80,48 @@ class Fahrkartenautomat {
 			 while (rueckgabebetrag >= 20.0) { // 20-Euro-Schein
 					System.out.println("20 Euro Schein");
 					rueckgabebetrag = rueckgabebetrag - 20.0;
+					rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			 }
 			 while (rueckgabebetrag >= 10.0) { // 10-Euro-Schein
 					System.out.println("10 Euro Schein");
 					rueckgabebetrag = rueckgabebetrag - 10.0;
+					rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			 }
 			 while (rueckgabebetrag >= 5.0) { // 5-Euro-Schein
 					System.out.println("5 Euro Schein");
 					rueckgabebetrag = rueckgabebetrag - 5.0;
+					rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			 }		
 			 while (rueckgabebetrag >= 2.0) { // 2-Euro-Münzen
 				System.out.println("2 Euro Münze");
 				rueckgabebetrag = rueckgabebetrag - 2.0;
+				rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			}
 			while (rueckgabebetrag >= 1.0) { // 1-Euro-Münzen
 				System.out.println("1 Euro Münze");
 				rueckgabebetrag = rueckgabebetrag - 1.0;
+				rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			}
 			while (rueckgabebetrag >= 0.5) { // 50-Cent-Münzen
 				System.out.println("50 Cent Münze");
 				rueckgabebetrag = rueckgabebetrag - 0.5;
+				rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			}
 			while (rueckgabebetrag >= 0.2) { // 20-Cent-Münzen
 				System.out.println("20 Cent Münze");
 				rueckgabebetrag = rueckgabebetrag - 0.2;
+				rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			}
 			while (rueckgabebetrag >= 0.1) { // 10-Cent-Münzen
 				System.out.println("10 Cent Münze");
 				rueckgabebetrag = rueckgabebetrag - 0.1;
+				rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
+
 			}
 			while (rueckgabebetrag >= 0.05) { // 5-Cent-Münzen
 				System.out.println("5 Cent Münze");
 				rueckgabebetrag = rueckgabebetrag - 0.05;
+				rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			}
 		}
 
@@ -105,4 +133,4 @@ class Fahrkartenautomat {
 }
 
 //Token
-//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
+//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
