@@ -80,48 +80,38 @@ class Fahrkartenautomat {
 			 while (rueckgabebetrag >= 20.0) { // 20-Euro-Schein
 					System.out.println("20 Euro Schein");
 					rueckgabebetrag = rueckgabebetrag - 20.0;
-					rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			 }
 			 while (rueckgabebetrag >= 10.0) { // 10-Euro-Schein
 					System.out.println("10 Euro Schein");
 					rueckgabebetrag = rueckgabebetrag - 10.0;
-					rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			 }
 			 while (rueckgabebetrag >= 5.0) { // 5-Euro-Schein
 					System.out.println("5 Euro Schein");
 					rueckgabebetrag = rueckgabebetrag - 5.0;
-					rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			 }		
 			 while (rueckgabebetrag >= 2.0) { // 2-Euro-Münzen
 				System.out.println("2 Euro Münze");
 				rueckgabebetrag = rueckgabebetrag - 2.0;
-				rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			}
 			while (rueckgabebetrag >= 1.0) { // 1-Euro-Münzen
 				System.out.println("1 Euro Münze");
 				rueckgabebetrag = rueckgabebetrag - 1.0;
-				rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			}
 			while (rueckgabebetrag >= 0.5) { // 50-Cent-Münzen
 				System.out.println("50 Cent Münze");
 				rueckgabebetrag = rueckgabebetrag - 0.5;
-				rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			}
 			while (rueckgabebetrag >= 0.2) { // 20-Cent-Münzen
 				System.out.println("20 Cent Münze");
 				rueckgabebetrag = rueckgabebetrag - 0.2;
-				rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			}
 			while (rueckgabebetrag >= 0.1) { // 10-Cent-Münzen
 				System.out.println("10 Cent Münze");
 				rueckgabebetrag = rueckgabebetrag - 0.1;
-				rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
-
 			}
 			while (rueckgabebetrag >= 0.05) { // 5-Cent-Münzen
 				System.out.println("5 Cent Münze");
 				rueckgabebetrag = rueckgabebetrag - 0.05;
-				rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			}
 		}
 
@@ -131,6 +121,6 @@ class Fahrkartenautomat {
 		tastatur.close();
 	}
 }
-
-//Token
 //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
+
+//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
