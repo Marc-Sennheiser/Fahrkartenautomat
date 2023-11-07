@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
 class Fahrkartenautomat {
+	public static void willkommen() {
+		System.out.println("Herzlich Willkommen");
+	}
 	public static void main(String[] args) {
 
 		Scanner tastatur = new Scanner(System.in);
@@ -14,65 +17,67 @@ class Fahrkartenautomat {
 		
 		int ticket;
 		int ticketArt;
+		
+		willkommen();
+		
 		System.out.println("Fahrkartenbestellvorgang:");
 		System.out.println("=========================");
 		System.out.println();
-		//1
-		do{
-		System.out.println("Wählen Sie ihre Wunschfahrkarte für Berlin AB aus:");
-		
-		System.out.println("Kurzstrecke AB [2,00 EUR] (1)");
-		System.out.println("Einzelfahrschein AB [3,00 EUR] (2)");
-		System.out.println("Tageskarte AB [8,80 EUR] (3)");
-		System.out.println("4-Fahrten-Karte AB [9,40 EUR] (4)");
-		System.out.println("Bezahlen (9)");
-		
-		boolean istrichtig;
-		do { System.out.print("Ihre Wahl:");
-			ticketArt = tastatur.nextInt();
-			 if (ticketArt == 9.0) {
-				 zuZahlenderBetrag = 0;
-	                break;
-	                }
-		istrichtig = ticketArt >= 1 && ticketArt <= 4;
-		zuZahlenderBetrag = 1;
-		if(istrichtig) {
-		switch(ticketArt) {
-		case 1: zuZahlenderBetrag = 2.00;
-			break;
-		case 2: zuZahlenderBetrag = 3.00;
-			break;
-		case 3: zuZahlenderBetrag = 8.80;
-			break;
-		case 4: zuZahlenderBetrag = 9.40;
-			break;
-			
-		default:
-			break;
-		}
-		}
-		else { System.out.println(">>falsche Eingabe<<");
-		}
-		}while(!istrichtig);
 		
 		boolean istGueltig;
-		
 		do {
-		    System.out.print("Anzahl der Tickets: ");
-		    ticket = tastatur.nextInt();
+		    System.out.println("Wählen Sie ihre Wunschfahrkarte für Berlin AB aus:");
 
-		    istGueltig = ticket >= 1 && ticket <= 10;
-		    if (istGueltig) {
-		        System.out.println("Anzahl der Tickets: " + ticket );
+		    System.out.println("Kurzstrecke AB [2,00 EUR] (1)");
+		    System.out.println("Einzelfahrschein AB [3,00 EUR] (2)");
+		    System.out.println("Tageskarte AB [8,80 EUR] (3)");
+		    System.out.println("4-Fahrten-Karte AB [9,40 EUR] (4)");
+		    System.out.println("Bezahlen (9)");
+
+		    System.out.print("Ihre Wahl: ");
+		    ticketArt = tastatur.nextInt();
+
+		    if (ticketArt == 9) {
+		        break; 
+		    } else if (ticketArt >= 1 && ticketArt <= 4) {
+		        switch (ticketArt) {
+		            case 1:
+		                zuZahlenderBetrag = 2.00;
+		                break;
+		            case 2:
+		                zuZahlenderBetrag = 3.00;
+		                break;
+		            case 3:
+		                zuZahlenderBetrag = 8.80;
+		                break;
+		            case 4:
+		                zuZahlenderBetrag = 9.40;
+		                break;
+
+		            default:
+		                break;
+		        }
+
+		        do {
+		            System.out.print("Anzahl der Tickets: ");
+		            ticket = tastatur.nextInt();
+
+		            istGueltig = ticket >= 1 && ticket <= 10;
+		            if (istGueltig) {
+		                System.out.println("Anzahl der Tickets: " + ticket);
+		            } else {
+		                System.out.println(">> Wählen sie bitte eine Anzahl von 1 bis 10 Tickets aus <<");
+		            }
+		        } while (!istGueltig);
+
+		        preisEinerBestellung = zuZahlenderBetrag * ticket;
+		        zwischensumme += preisEinerBestellung;
+		        System.out.println("Zwischensumme:" + zwischensumme + " Euro");
+
 		    } else {
-		        System.out.println(">> Wählen sie bitte eine Anzahl von 1 bis 10 Tickets aus <<");
+		        System.out.println(">>falsche Eingabe<<");
 		    }
-		} while (!istGueltig);
-		preisEinerBestellung = zuZahlenderBetrag * (double) ticket;
-		zwischensumme = zwischensumme + preisEinerBestellung;
 
-	
-	System.out.println("Zwischensumme:" + zwischensumme + " Euro");
 		} while (ticketArt != 9);
 	
 		
