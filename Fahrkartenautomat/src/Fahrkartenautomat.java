@@ -4,12 +4,13 @@ class Fahrkartenautomat {
 	public static void main(String[] args) {
 
 		Scanner tastatur = new Scanner(System.in);
-
-		double zuZahlenderBetrag;
+		double zwischensumme = 0;
+		double zuZahlenderBetrag = 0;
 		double eingezahlterGesamtbetrag;
 		double eingeworfeneMuenze;
 		double rueckgabebetrag;
 		double nochZuZahlen;
+		double preisEinerBestellung;
 		
 		int ticket;
 		int ticketArt;
@@ -17,16 +18,22 @@ class Fahrkartenautomat {
 		System.out.println("=========================");
 		System.out.println();
 		//1
+		do{
 		System.out.println("Wählen Sie ihre Wunschfahrkarte für Berlin AB aus:");
 		
 		System.out.println("Kurzstrecke AB [2,00 EUR] (1)");
 		System.out.println("Einzelfahrschein AB [3,00 EUR] (2)");
 		System.out.println("Tageskarte AB [8,80 EUR] (3)");
 		System.out.println("4-Fahrten-Karte AB [9,40 EUR] (4)");
+		System.out.println("Bezahlen (9)");
 		
 		boolean istrichtig;
-		do {System.out.print("Ihre Wahl:");
+		do { System.out.print("Ihre Wahl:");
 			ticketArt = tastatur.nextInt();
+			 if (ticketArt == 9.0) {
+				 zuZahlenderBetrag = 0;
+	                break;
+	                }
 		istrichtig = ticketArt >= 1 && ticketArt <= 4;
 		zuZahlenderBetrag = 1;
 		if(istrichtig) {
@@ -39,6 +46,7 @@ class Fahrkartenautomat {
 			break;
 		case 4: zuZahlenderBetrag = 9.40;
 			break;
+			
 		default:
 			break;
 		}
@@ -60,15 +68,19 @@ class Fahrkartenautomat {
 		        System.out.println(">> Wählen sie bitte eine Anzahl von 1 bis 10 Tickets aus <<");
 		    }
 		} while (!istGueltig);
-		
-		zuZahlenderBetrag *= ticket;
-		
+		preisEinerBestellung = zuZahlenderBetrag * (double) ticket;
+		zwischensumme = zwischensumme + preisEinerBestellung;
+
+	
+	System.out.println("Zwischensumme:" + zwischensumme + " Euro");
+		} while (ticketArt != 9);
+	
 		
 		// 2
 		eingezahlterGesamtbetrag = 0.0;
 		nochZuZahlen = 0.0 ;
-		while (eingezahlterGesamtbetrag < zuZahlenderBetrag) {
-			nochZuZahlen = zuZahlenderBetrag - eingezahlterGesamtbetrag;
+		while (eingezahlterGesamtbetrag < zwischensumme) {
+			nochZuZahlen = zwischensumme - eingezahlterGesamtbetrag;
 			System.out.printf("Noch zu zahlen: %.2f Euro\n", nochZuZahlen);
 		 
 			boolean gueltigeEingabe = false;
@@ -99,7 +111,7 @@ class Fahrkartenautomat {
 		System.out.println("\n\n");
 		
 		// 4
-		rueckgabebetrag = eingezahlterGesamtbetrag - zuZahlenderBetrag;
+		rueckgabebetrag = eingezahlterGesamtbetrag - zwischensumme;
 		if (rueckgabebetrag > 0.0) {
 			 System.out.printf("Der Rückgabebetrag in Höhe von %.2f Euro\n", rueckgabebetrag);
 			 System.out.println("wird in folgenden Münzen ausgezahlt:");
@@ -159,6 +171,6 @@ class Fahrkartenautomat {
 		}
 		}
 
-//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
+//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
 
 
