@@ -4,22 +4,14 @@ class Fahrkartenautomat {
 	public static void willkommen() {
 		System.out.println("Herzlich Willkommen");
 	}
-	public static void main(String[] args) {
-
-		Scanner tastatur = new Scanner(System.in);
-		double zwischensumme = 0;
-		double zuZahlenderBetrag = 0;
-		double eingezahlterGesamtbetrag;
-		double eingeworfeneMuenze;
-		double rueckgabebetrag;
-		double nochZuZahlen;
-		double preisEinerBestellung;
+	public static double fahrkartenBestellErfassung(Scanner tastatur) {
 		
+		double zuZahlenderBetrag = 0;
+		double zwischensumme = 0;
 		int ticket;
 		int ticketArt;
-		
-		willkommen();
-		
+		double preisEinerBestellung;
+
 		System.out.println("Fahrkartenbestellvorgang:");
 		System.out.println("=========================");
 		System.out.println();
@@ -80,6 +72,27 @@ class Fahrkartenautomat {
 
 		} while (ticketArt != 9);
 	
+		return zwischensumme;
+	
+	}
+	public static void main(String[] args) {
+
+		Scanner tastatur = new Scanner(System.in);
+		double zwischensumme = 0;
+		double eingezahlterGesamtbetrag;
+		double eingeworfeneMuenze;
+		double rueckgabebetrag;
+		double nochZuZahlen;
+		
+			willkommen();
+			
+			zwischensumme = fahrkartenBestellErfassung(tastatur);
+		
+		System.out.println("Fahrkartenbestellvorgang:");
+		System.out.println("=========================");
+		System.out.println();
+		
+		
 		
 		// 2
 		eingezahlterGesamtbetrag = 0.0;
