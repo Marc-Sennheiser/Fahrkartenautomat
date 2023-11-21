@@ -112,12 +112,7 @@ class Fahrkartenautomat {
 			
 			zwischensumme = fahrkartenBestellErfassung(tastatur);
 			
-		
-		
-		
-		
-		// 2
-		eingezahlterGesamtbetrag = fahrkartenBezahlen(tastatur, zwischensumme);
+			eingezahlterGesamtbetrag = fahrkartenBezahlen(tastatur, zwischensumme);
 		// 3
 		System.out.println("\nFahrschein wird ausgegeben");
 		for (int i = 0; i < 8; i++) {
