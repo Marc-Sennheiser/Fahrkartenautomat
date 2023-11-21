@@ -64,7 +64,7 @@ class Fahrkartenautomat {
 
 		        preisEinerBestellung = zuZahlenderBetrag * ticket;
 		        zwischensumme += preisEinerBestellung;
-		        System.out.println("Zwischensumme:" + zwischensumme + " Euro");
+		        System.out.printf("Zwischensumme: %.2f Euro\n", zwischensumme);
 
 		    } else {
 		        System.out.println(">>falsche Eingabe<<");
@@ -75,28 +75,10 @@ class Fahrkartenautomat {
 		return zwischensumme;
 	
 	}
-	public static void main(String[] args) {
-
-		Scanner tastatur = new Scanner(System.in);
-		double zwischensumme = 0;
-		double eingezahlterGesamtbetrag;
-		double eingeworfeneMuenze;
-		double rueckgabebetrag;
-		double nochZuZahlen;
-		
-			willkommen();
-			
-			zwischensumme = fahrkartenBestellErfassung(tastatur);
-		
-		System.out.println("Fahrkartenbestellvorgang:");
-		System.out.println("=========================");
-		System.out.println();
-		
-		
-		
-		// 2
-		eingezahlterGesamtbetrag = 0.0;
-		nochZuZahlen = 0.0 ;
+	public static double fahrkartenBezahlen(Scanner tastatur, double zwischensumme) {
+		double eingezahlterGesamtbetrag = 0.0;
+	    double nochZuZahlen = 0.0;
+	    double eingeworfeneMuenze;
 		while (eingezahlterGesamtbetrag < zwischensumme) {
 			nochZuZahlen = zwischensumme - eingezahlterGesamtbetrag;
 			System.out.printf("Noch zu zahlen: %.2f Euro\n", nochZuZahlen);
@@ -113,8 +95,29 @@ class Fahrkartenautomat {
 			System.out.println("Ungültige Eingabe! Bitte geben Sie einen gültigen Betrag ein: 0,1  0,2  0,5  1  2  5  10  20  50");
 		}
 	 }
-	}
+   }
+		return eingezahlterGesamtbetrag;
+}
+	
+	public static void main(String[] args) {
+
+		Scanner tastatur = new Scanner(System.in);
+		double zwischensumme = 0;
+		double eingezahlterGesamtbetrag;
+		double eingeworfeneMuenze;
+		double rueckgabebetrag;
+		double nochZuZahlen;
 		
+			willkommen();
+			
+			zwischensumme = fahrkartenBestellErfassung(tastatur);
+			
+		
+		
+		
+		
+		// 2
+		eingezahlterGesamtbetrag = fahrkartenBezahlen(tastatur, zwischensumme);
 		// 3
 		System.out.println("\nFahrschein wird ausgegeben");
 		for (int i = 0; i < 8; i++) {
@@ -180,7 +183,7 @@ class Fahrkartenautomat {
 				rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			}
 		}
-
+	
 		System.out.println("\nVergessen Sie nicht, den Fahrschein\n" + "vor Fahrtantritt entwerten zu lassen!\n"
 				+ "Wir wünschen Ihnen eine gute Fahrt.");
 
@@ -189,6 +192,6 @@ class Fahrkartenautomat {
 		}
 		}
 
-//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
+//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
 
 
