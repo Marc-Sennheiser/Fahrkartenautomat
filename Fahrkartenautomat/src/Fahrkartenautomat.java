@@ -198,6 +198,6 @@ class Fahrkartenautomat {
 		}
 		}
 
-//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
+//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
 
 
